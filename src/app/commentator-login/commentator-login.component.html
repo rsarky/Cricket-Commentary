@@ -1,3 +1,8 @@
-<p>
-  commentator-login works!
-</p>
+<div *ngIf="afAuth.user | async as user; else showLogin">
+  <button mat-flat-button color="warn" (click)="logout()">Logout</button>
+  <app-comment-entry></app-comment-entry>
+</div>
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <button mat-flat-button color="primary" (click)="login()">Login with Google</button>
+</ng-template>

@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class CommentEntryComponent implements OnInit {
   comment = new Comment();
+  battingTeam: string;
+  bowlingTeam: string;
   comments;
   constructor(db: AngularFireDatabase) { 
     this.comments = db.list('comments')

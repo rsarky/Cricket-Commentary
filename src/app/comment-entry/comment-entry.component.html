@@ -1,4 +1,10 @@
 <form (ngSubmit)="onSubmit()" #commentForm="ngForm" class="comment-form">
+    <mat-form-field>
+        <input matInput placeholder="Batting Team" type="text" [(ngModel)]="battingTeam" name="team1name" required>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Bowling Team" type="text" [(ngModel)]="bowlingTeam" name="team2name" required>
+      </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Over" type="number" [(ngModel)]="comment.over" name="over" required>
   </mat-form-field>

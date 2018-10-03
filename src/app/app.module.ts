@@ -17,6 +17,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { MatListModule } from '@angular/material/list';
 import { CommentatorLoginComponent } from './commentator-login/commentator-login.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 @NgModule({
@@ -36,9 +37,10 @@ import { CommentatorLoginComponent } from './commentator-login/commentator-login
     MatSelectModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    RouterModule.forRoot([{ path: 'commentary', component: CommentEntryComponent },
+    RouterModule.forRoot([{ path: 'commentary', component: CommentatorLoginComponent },
     { path: '', component: UserComponent }]),
-    MatListModule
+    MatListModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
