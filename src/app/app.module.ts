@@ -18,6 +18,7 @@ import { UserComponent } from './user/user.component';
 import { MatListModule } from '@angular/material/list';
 import { CommentatorLoginComponent } from './commentator-login/commentator-login.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { NewmatchComponent } from './newmatch/newmatch.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AppComponent,
     CommentEntryComponent,
     UserComponent,
-    CommentatorLoginComponent
+    CommentatorLoginComponent,
+    NewmatchComponent
   ],
   imports: [
     BrowserModule,
