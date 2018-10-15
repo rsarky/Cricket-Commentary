@@ -14,23 +14,34 @@ export class CommentEntryComponent implements OnInit {
   @Input() match: Match;
   @Input() matchKey;
   database: MatchInfoService;
-  comment = new Comment();
+  comment: Comment;
   battingTeam: string;
   bowlingTeam: string;
   comments;
   ref;
   constructor(db: MatchInfoService) {
+    this.comment = new Comment();
     this.database = db;
   }
 
   ngOnInit() {
     
+    this.comment.over = this.match.score.overs;
+    this.comment.ball = this.match.score.balls === 6 ? 1 : this.match.score.balls + 1;
+    console.log(this.comment)
+
   }
 
   onSubmit() {
     this.database.pushComment(this.matchKey, this.comment, this.match.inning)
       .then(() => {
-        this.comment = new Comment();
+        this.comment.comment = "";
+        if(this.comment.ball === 6) {
+          this.comment.over++;
+          this.comment.ball = 0;
+        } else {
+          this.comment.ball++;
+        }
       })
       .catch((err) => {
         console.log(err);

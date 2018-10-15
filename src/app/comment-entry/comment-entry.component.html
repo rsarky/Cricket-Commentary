@@ -10,14 +10,15 @@
     <input matInput placeholder="Over" type="number" [(ngModel)]="comment.over" name="over" required>
   </mat-form-field>
   <mat-form-field>
-    <mat-select placeholder="Ball" [(ngModel)]="comment.ball" name="ball" required>
+    <!-- <mat-select placeholder="Ball" [(value)]="comment.ball" [(ngModel)]="comment.ball" name="ball" required>
       <mat-option value="1">1</mat-option>
       <mat-option value="2">2</mat-option>
       <mat-option value="3">3</mat-option>
       <mat-option value="4">4</mat-option>
       <mat-option value="5">5</mat-option>
       <mat-option value="6">6</mat-option>
-    </mat-select>
+    </mat-select> -->
+    <input matInput placeholder="Ball" type="number" [(ngModel)]="comment.ball" name="ball" required>
   </mat-form-field>
   <mat-form-field>
     <textarea matInput placeholder="Comment" cdkTextareaAutosize [(ngModel)]="comment.comment" name="comment" required></textarea>

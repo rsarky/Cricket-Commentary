@@ -12,7 +12,8 @@ export class Match {
     score: {
         runs: number,
         wickets: number,
-        overs: number
+        overs: number,
+        balls: number
     }
     comments: {
         innings1: Comment[],
@@ -23,7 +24,8 @@ export class Match {
         this.score  = {
             runs: 0,
             wickets: 0,
-            overs: 0
+            overs: 0,
+            balls: 1
         }
         this.status = 'running';
         this.inning = 1;
