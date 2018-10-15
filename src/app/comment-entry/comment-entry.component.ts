@@ -53,11 +53,24 @@ export class CommentEntryComponent implements OnInit {
 
   nextInning() {
     this.match.inning = 2;
-    //Update db here.
+    this.reset();
+    this.database.changeInning(this.matchKey)
   }
 
   endMatch() {
     this.match.status = 'completed';
-    //Update db here.
+    this.database.completeMatch(this.matchKey);
+  }
+
+  reset() {
+    this.comment.comment = "";
+    this.comment.over = 0;
+    this.comment.ball = 1;
+    this.match.score = {
+      overs: 0,
+      balls: 0,
+      runs: 0,
+      wickets: 0
+    };
   }
 }

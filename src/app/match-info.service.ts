@@ -45,4 +45,12 @@ export class MatchInfoService {
   updateScore(key: String, score: Match['score']) {
     this.db.object('/matches/' + key + '/score').set(score)
   }
+
+  changeInning(key: String) {
+    this.db.object('/matches/' + key).update({inning: 2});
+  }
+
+  completeMatch(key: String) {
+    this.db.object('/matches/' + key).update({status: 'completed'});
+  }
 }
