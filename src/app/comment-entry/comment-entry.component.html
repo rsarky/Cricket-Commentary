@@ -1,5 +1,6 @@
+<!-- <h2>{{}}</h2> -->
 <form (ngSubmit)="onSubmit()" #commentForm="ngForm" class="comment-form">
-    <!-- <mat-form-field>
+  <!-- <mat-form-field>
         <input matInput placeholder="Batting Team" type="text" [(ngModel)]="battingTeam" name="team1name" required>
       </mat-form-field>
       <mat-form-field>
@@ -21,5 +22,17 @@
   <mat-form-field>
     <textarea matInput placeholder="Comment" cdkTextareaAutosize [(ngModel)]="comment.comment" name="comment" required></textarea>
   </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Runs" type="number" [(ngModel)]="match.score.runs" name="runs">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Wickets" type="number" [(ngModel)]="match.score.wickets" name="wickets">
+  </mat-form-field>
   <button mat-button color="primary" type="submit" [disabled]="!commentForm.form.valid">Submit</button>
+  <div *ngIf="match.inning == 1">
+    <button mat-button color="warn" (click)="nextInning()">Next Inning</button>
+  </div>
+  <div *ngIf="match.inning == 2">
+    <button mat-button color="warn" (click)="endMatch()">Match Over</button>
+  </div>
 </form>

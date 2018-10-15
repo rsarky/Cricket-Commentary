@@ -24,10 +24,14 @@ export class NewmatchComponent implements OnInit {
 
   onSubmit() {
     this.db.putMatch(this.match)
-    .then(_ => {
+    .then((key: string) => {
       this.success = true;
+      this.match.dbKey = key;
+      // TODO very very hacky. Find an alternate method to get the key for a firebase list item. This uses 2 db acceses.
+      this.db.setKey(key);
+      console.log(this.match.dbKey);
       this.showMatchForm = false;
-      console.log('success');
+      console.log('successfully created match');
     })
     .catch(_ => {
       this.success = false;

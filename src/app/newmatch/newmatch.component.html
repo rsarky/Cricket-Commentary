@@ -1,30 +1,35 @@
-<form *ngIf="showMatchForm" (ngSubmit)="onSubmit()" #matchForm="ngForm">
-  <mat-form-field>
-    <input matInput placeholder="Team 1 Name" type="text" name="team1" [(ngModel)]="match.team1" required #team1="ngModel">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Team 2 Name" type="text" name="team2" [(ngModel)]="match.team2" required #team2="ngModel">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-select placeholder="Toss won by" name="toss" [(ngModel)]="match.toss" [disabled]="!team1.valid || !team2.valid" required>
-      <mat-option [value]="match.team1">{{match.team1}}</mat-option> <!-- Disable these options until teams are entered.-->
-      <mat-option [value]="match.team2">{{match.team2}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-select placeholder="Team {{match.toss}} chose to" name="decision" [(ngModel)]="match.decision" required>
-      <mat-option value="bat">Bat</mat-option>
-      <mat-option value="bowl">Bowl</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Number of overs" type="number" name="overs" [(ngModel)]="match.overs" required>
-  </mat-form-field>
-  <button mat-button color="primary" type="submit" [disabled]="!matchForm.form.valid">Start</button>
-</form>
-<div *ngIf="showError">
-  <p>Oops! Something went wrong. Retry!</p> <!-- Test and improve comment entry. -->
+<div *ngIf="showMatchForm">
+  <h1>Start a new match!</h1>
+  <form (ngSubmit)="onSubmit()" #matchForm="ngForm">
+    <mat-form-field>
+      <input matInput placeholder="Team 1 Name" type="text" name="team1" [(ngModel)]="match.team1" required #team1="ngModel">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Team 2 Name" type="text" name="team2" [(ngModel)]="match.team2" required #team2="ngModel">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Toss won by" name="toss" [(ngModel)]="match.toss" [disabled]="!team1.valid || !team2.valid" required>
+        <mat-option [value]="match.team1">{{match.team1}}</mat-option>
+        <!-- Disable these options until teams are entered.-->
+        <mat-option [value]="match.team2">{{match.team2}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Team {{match.toss}} chose to" name="decision" [(ngModel)]="match.decision" required>
+        <mat-option value="bat">Bat</mat-option>
+        <mat-option value="bowl">Bowl</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Number of overs" type="number" name="overs" [(ngModel)]="match.overs" required>
+    </mat-form-field>
+    <button mat-button color="primary" type="submit" [disabled]="!matchForm.form.valid">Start</button>
+  </form>
 </div>
-<div *ngIf="success">
-  <app-comment-entry></app-comment-entry>
+<div *ngIf="showError">
+  <p>Oops! Something went wrong. Retry!</p>
+  <!-- Test and improve comment entry. -->
+</div>
+<div *ngIf="success && match.dbKey">
+  <app-comment-entry [match]="match" [matchKey]="match.dbKey"></app-comment-entry>
 </div>

@@ -19,6 +19,7 @@ import { MatListModule } from '@angular/material/list';
 import { CommentatorLoginComponent } from './commentator-login/commentator-login.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NewmatchComponent } from './newmatch/newmatch.component';
+import { CommentLandingComponent } from './comment-landing/comment-landing.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NewmatchComponent } from './newmatch/newmatch.component';
     CommentEntryComponent,
     UserComponent,
     CommentatorLoginComponent,
-    NewmatchComponent
+    NewmatchComponent,
+    CommentLandingComponent
   ],
   imports: [
     BrowserModule,

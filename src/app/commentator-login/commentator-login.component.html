@@ -1,6 +1,7 @@
 <div *ngIf="afAuth.user | async as user; else showLogin">
   <button mat-flat-button color="warn" (click)="logout()">Logout</button>
-  <app-newmatch></app-newmatch>
+  <app-comment-landing></app-comment-landing>
+  <!-- <app-newmatch></app-newmatch> -->
 </div>
 <ng-template #showLogin>
   <p>Please login.</p>
