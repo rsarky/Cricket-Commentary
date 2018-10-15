@@ -41,4 +41,8 @@ export class MatchInfoService {
         .catch(err => reject(err));
     });
   }
+
+  updateScore(key: String, score: Match['score']) {
+    this.db.object('/matches/' + key + '/score').set(score)
+  }
 }

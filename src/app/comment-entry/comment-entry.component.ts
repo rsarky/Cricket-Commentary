@@ -46,6 +46,9 @@ export class CommentEntryComponent implements OnInit {
       .catch((err) => {
         console.log(err);
       })
+      this.match.score.overs = this.comment.over;
+      this.match.score.balls = this.comment.ball;
+      this.database.updateScore(this.matchKey, this.match.score)
   }
 
   nextInning() {
