@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "commentary-ce7fe"
+    "default": "commentary-ce7fe",
+    "staging": "commentary-staging"
   }
 }
