@@ -6,6 +6,10 @@
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-nav-list>
+
+  <div *ngIf="noMatches">
+    <h3>There are no ongoing matches. Refresh the page to go back.</h3>
+  </div>
 </div>
 <div *ngIf="showCommentEntry">
   <app-comment-entry [match]="selectedMatch" [matchKey]="selectedMatch.dbKey"></app-comment-entry>

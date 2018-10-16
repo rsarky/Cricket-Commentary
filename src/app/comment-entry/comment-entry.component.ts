@@ -4,6 +4,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { Match } from '../Match';
 import { MatchInfoService } from '../match-info.service'
+import { Router } from '@angular/router';
 //TODO: refactor db stuff into match-info service.
 @Component({
   selector: 'app-comment-entry',
@@ -20,7 +21,7 @@ export class CommentEntryComponent implements OnInit {
   comments;
   ref;
   extra: boolean;
-  constructor(db: MatchInfoService) {
+  constructor(db: MatchInfoService, public router: Router) {
     this.comment = new Comment();
     this.database = db;
     this.extra = false;
@@ -66,6 +67,7 @@ export class CommentEntryComponent implements OnInit {
   endMatch() {
     this.match.status = 'completed';
     this.database.completeMatch(this.matchKey);
+    this.router.navigateByUrl('').then(_ => this.router.navigateByUrl('/commentary'));
   }
 
   reset() {

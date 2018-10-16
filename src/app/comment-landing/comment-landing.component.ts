@@ -14,11 +14,17 @@ export class CommentLandingComponent implements OnInit {
   showCommentEntry: boolean;
   ongoingMatches: Observable<any>;
   selectedMatch: Match;
+  noMatches:boolean = false;
   constructor(db: AngularFireDatabase) {
     this.matches = db.list('/matches').valueChanges()
     this.ongoingMatches = this.matches.pipe(
       map(matchArray => matchArray = matchArray.filter(match => match.status === 'running'))
     )
+    this.ongoingMatches.subscribe(s => {
+      if(s.length === 0) {
+        this.noMatches = true;
+      }
+    })
   }
 
   onClick(match) {
