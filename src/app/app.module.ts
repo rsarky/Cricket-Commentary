@@ -44,7 +44,8 @@ import { CommentLandingComponent } from './comment-landing/comment-landing.compo
     RouterModule.forRoot([{ path: 'commentary', component: CommentatorLoginComponent },
     { path: '', component: UserComponent }]),
     MatListModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

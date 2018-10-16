@@ -20,6 +20,9 @@
     </mat-select> -->
     <input matInput placeholder="Ball" type="number" [(ngModel)]="comment.ball" name="ball" required>
   </mat-form-field>
+    <mat-checkbox [(ngModel)]="extra" name="extra" color="primary"> 
+      Extras (Wide, No Ball etc)
+    </mat-checkbox>
   <mat-form-field>
     <textarea matInput placeholder="Comment" cdkTextareaAutosize [(ngModel)]="comment.comment" name="comment" required></textarea>
   </mat-form-field>

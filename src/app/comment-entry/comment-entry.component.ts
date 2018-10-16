@@ -19,9 +19,11 @@ export class CommentEntryComponent implements OnInit {
   bowlingTeam: string;
   comments;
   ref;
+  extra: boolean;
   constructor(db: MatchInfoService) {
     this.comment = new Comment();
     this.database = db;
+    this.extra = false;
   }
 
   ngOnInit() {
@@ -36,12 +38,16 @@ export class CommentEntryComponent implements OnInit {
     this.database.pushComment(this.matchKey, this.comment, this.match.inning)
       .then(() => {
         this.comment.comment = "";
-        if(this.comment.ball === 6) {
-          this.comment.over++;
-          this.comment.ball = 0;
+        if(!this.extra) {
+          if(this.comment.ball === 6) {
+            this.comment.over++;
+            this.comment.ball = 0;
+          } else {
+            this.comment.ball++;
+          }
         } else {
-          this.comment.ball++;
-        }
+          this.extra = false;
+        }   
       })
       .catch((err) => {
         console.log(err);
