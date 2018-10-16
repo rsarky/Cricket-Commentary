@@ -1,16 +1,10 @@
-<!-- <h2>{{}}</h2> -->
-<form (ngSubmit)="onSubmit()" #commentForm="ngForm" class="comment-form">
-  <!-- <mat-form-field>
-        <input matInput placeholder="Batting Team" type="text" [(ngModel)]="battingTeam" name="team1name" required>
-      </mat-form-field>
-      <mat-form-field>
-          <input matInput placeholder="Bowling Team" type="text" [(ngModel)]="bowlingTeam" name="team2name" required>
-      </mat-form-field> -->
-  <mat-form-field>
-    <input matInput placeholder="Over" type="number" [(ngModel)]="comment.over" name="over" required>
-  </mat-form-field>
-  <mat-form-field>
-    <!-- <mat-select placeholder="Ball" [(value)]="comment.ball" [(ngModel)]="comment.ball" name="ball" required>
+<mat-card>
+  <form (ngSubmit)="onSubmit()" #commentForm="ngForm" class="comment-form">
+    <mat-form-field>
+      <input matInput placeholder="Over" type="number" [(ngModel)]="comment.over" name="over" required>
+    </mat-form-field>
+    <mat-form-field>
+      <!-- <mat-select placeholder="Ball" [(value)]="comment.ball" [(ngModel)]="comment.ball" name="ball" required>
       <mat-option value="1">1</mat-option>
       <mat-option value="2">2</mat-option>
       <mat-option value="3">3</mat-option>
@@ -18,25 +12,26 @@
       <mat-option value="5">5</mat-option>
       <mat-option value="6">6</mat-option>
     </mat-select> -->
-    <input matInput placeholder="Ball" type="number" [(ngModel)]="comment.ball" name="ball" required>
-  </mat-form-field>
-    <mat-checkbox [(ngModel)]="extra" name="extra" color="primary"> 
+      <input matInput placeholder="Ball" type="number" [(ngModel)]="comment.ball" name="ball" required>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="extra" name="extra" color="primary">
       Extras (Wide, No Ball etc)
     </mat-checkbox>
-  <mat-form-field>
-    <textarea matInput placeholder="Comment" cdkTextareaAutosize [(ngModel)]="comment.comment" name="comment" required></textarea>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Runs" type="number" [(ngModel)]="match.score.runs" name="runs">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Wickets" type="number" [(ngModel)]="match.score.wickets" name="wickets">
-  </mat-form-field>
-  <button mat-button color="primary" type="submit" [disabled]="!commentForm.form.valid">Submit</button>
-  <div *ngIf="match.inning == 1">
-    <button mat-button color="warn" (click)="nextInning()">Next Inning</button>
-  </div>
-  <div *ngIf="match.inning == 2">
-    <button mat-button color="warn" (click)="endMatch()">Match Over</button>
-  </div>
-</form>
+    <mat-form-field>
+      <textarea matInput placeholder="Comment" cdkTextareaAutosize [(ngModel)]="comment.comment" name="comment" required></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Runs" type="number" [(ngModel)]="match.score.runs" name="runs">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Wickets" type="number" [(ngModel)]="match.score.wickets" name="wickets">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!commentForm.form.valid">Submit</button>
+    <div *ngIf="match.inning == 1">
+      <button mat-flat-button color="warn" type="button" (click)="nextInning()" class="otherbuttons">Next Inning</button>
+    </div>
+    <div *ngIf="match.inning == 2">
+      <button mat-flat-button color="warn" type="button" (click)="endMatch()" class="otherbuttons">Match Over</button>
+    </div>
+  </form>
+</mat-card>

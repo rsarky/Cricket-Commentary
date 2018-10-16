@@ -25,7 +25,7 @@ export class Match {
             runs: 0,
             wickets: 0,
             overs: 0,
-            balls: 1
+            balls: 0
         }
         this.status = 'running';
         this.inning = 1;

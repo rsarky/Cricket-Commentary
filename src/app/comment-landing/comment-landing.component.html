@@ -1,9 +1,11 @@
 <div *ngIf="!showCommentEntry">
-  <mat-list>
-    <mat-list-item *ngFor="let match of ongoingMatches | async">
-      <p (click)="onClick(match)">{{ match.team1 }} vs {{ match.team2 }}</p>
+  <h1>Ongoing Matches</h1>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let match of ongoingMatches | async" (click)="onClick(match)">
+      <a>{{ match.team1 }} vs {{ match.team2 }}</a>
+      <mat-divider></mat-divider>
     </mat-list-item>
-  </mat-list>
+  </mat-nav-list>
 </div>
 <div *ngIf="showCommentEntry">
   <app-comment-entry [match]="selectedMatch" [matchKey]="selectedMatch.dbKey"></app-comment-entry>

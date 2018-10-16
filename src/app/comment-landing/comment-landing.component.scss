@@ -1,0 +1,14 @@
+h1 {
+    margin: 20px 0px 20px 20px;
+}
+mat-nav-list {
+    margin-left: 20px;
+    mat-list-item {
+        a {
+            font-size: 1.5rem;
+        }    
+    }
+    mat-list-item:hover {
+        color: brown;
+    }
+}

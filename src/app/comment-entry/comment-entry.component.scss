@@ -1,7 +1,17 @@
 .comment-form {
     display: flex;
     flex-direction: column;
-    margin: 40px auto;
+    margin: 20px auto;
     width: 70%;
+    // align-items: center;
+}
 
+mat-card {
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.otherbuttons {
+    margin-top: 20px;
 }

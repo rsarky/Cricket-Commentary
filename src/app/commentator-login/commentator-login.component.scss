@@ -1,0 +1,33 @@
+.navbar {
+    display: flex;
+    // justify-content: center;
+    .filled-space {
+        flex: 1 1 auto;
+    }
+}
+
+.choice {
+    margin: 50px 0px 0px 50px;
+    button {
+        margin: 0px 10px;
+    }
+}
+
+.login-card {
+    max-width: 400px !important;
+    margin: auto;
+    margin-top: 50px;
+    mat-card-header {
+        display: flex;
+        justify-content: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    mat-card-actions {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+}

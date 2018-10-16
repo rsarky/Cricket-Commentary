@@ -20,7 +20,9 @@ import { CommentatorLoginComponent } from './commentator-login/commentator-login
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NewmatchComponent } from './newmatch/newmatch.component';
 import { CommentLandingComponent } from './comment-landing/comment-landing.component';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,10 @@ import { CommentLandingComponent } from './comment-landing/comment-landing.compo
     { path: '', component: UserComponent }]),
     MatListModule,
     AngularFireAuthModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
