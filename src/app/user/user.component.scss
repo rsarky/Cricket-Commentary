@@ -1,3 +1,51 @@
+$navcolor : #2ccbf7;
+// $navtextcolor: 
 p {
     margin-left: 20px;
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    mat-toolbar {
+        display: flex;
+        // width: 100%;
+        // justify-content: center;
+        background-color: $navcolor;
+    }
+    h1 {
+        margin-top: 0px;
+        margin-left: 20px;
+    }
+    min-height: 100vh;
+    background-color: white !important;
+
+    .matches {
+        display: flex;
+        overflow: auto;
+        mat-card {
+            min-width:200px;
+            height: 100px;
+        }
+        .toss {
+            font-size: x-small;
+            font-weight: lighter;
+            color:lightcoral;
+        }
+        .bowler {
+            margin-top:10px;
+            color: grey;
+        }
+        
+    }
+}
+
+footer {
+    // align-self: flex-end;
+    // width: 100%;
+    margin-top: auto;
+    height: 50px;
+    background-color: #142e5b;
+    display: flex;
+    justify-content: center;
 }

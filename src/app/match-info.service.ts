@@ -46,11 +46,15 @@ export class MatchInfoService {
     this.db.object('/matches/' + key + '/score').set(score)
   }
 
-  changeInning(key: String) {
-    this.db.object('/matches/' + key).update({inning: 2});
+  changeInning(key: String, battingTeam: string) {
+    this.db.object('/matches/' + key).update({inning: 2,batting: battingTeam});
   }
 
   completeMatch(key: String) {
     this.db.object('/matches/' + key).update({status: 'completed'});
+  }
+
+  getMatches(): Observable<any> {
+    return this.db.list('/matches').valueChanges();
   }
 }

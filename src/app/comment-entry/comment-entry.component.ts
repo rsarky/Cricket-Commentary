@@ -60,8 +60,9 @@ export class CommentEntryComponent implements OnInit {
 
   nextInning() {
     this.match.inning = 2;
+    let battingTeam = this.match.batting == this.match.team1 ? this.match.team2 : this.match.team1;
     this.reset();
-    this.database.changeInning(this.matchKey)
+    this.database.changeInning(this.matchKey,battingTeam)
   }
 
   endMatch() {

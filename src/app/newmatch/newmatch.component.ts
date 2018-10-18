@@ -23,6 +23,7 @@ export class NewmatchComponent implements OnInit {
   }
 
   onSubmit() {
+    this.match.batting = this.match.toss;
     this.db.putMatch(this.match)
     .then((key: string) => {
       this.success = true;

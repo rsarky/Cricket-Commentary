@@ -9,6 +9,22 @@ export class Match {
     overs: number;
     status: string;
     inning: number;
+    batting: string;
+    finalscore: {
+        inning1: {
+            runs: number,
+            wickets: number,
+            overs: number,
+            balls: number
+        },
+        inning2: {
+            runs: number,
+            wickets: number,
+            overs: number,
+            balls: number
+        },
+        winner: string
+    }
     score: {
         runs: number,
         wickets: number,
@@ -21,7 +37,7 @@ export class Match {
     }
 
     constructor() {
-        this.score  = {
+        this.score = {
             runs: 0,
             wickets: 0,
             overs: 0,

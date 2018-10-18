@@ -16,7 +16,7 @@ export class CommentLandingComponent implements OnInit {
   selectedMatch: Match;
   noMatches:boolean = false;
   constructor(db: AngularFireDatabase) {
-    this.matches = db.list('/matches').valueChanges()
+    this.matches = db.list('/matches').valueChanges() //TODO: This should be in the service.
     this.ongoingMatches = this.matches.pipe(
       map(matchArray => matchArray = matchArray.filter(match => match.status === 'running'))
     )

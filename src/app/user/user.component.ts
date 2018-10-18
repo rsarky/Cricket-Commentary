@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Comment } from '../Comment'
+import { Comment } from '../Comment';
 import { Observable } from 'rxjs';
-import { AngularFireDatabase, AngularFireList} from '@angular/fire/database'
+import { AngularFireDatabase, AngularFireList} from '@angular/fire/database';
+import { MatchInfoService } from '../match-info.service';
 
 @Component({
   selector: 'app-user',
@@ -10,9 +11,9 @@ import { AngularFireDatabase, AngularFireList} from '@angular/fire/database'
 })
 export class UserComponent implements OnInit {
   comments: Observable<any[]>; //Add type safety somehow.
-  constructor(db : AngularFireDatabase) {
-    this.comments = db.list('comments', ref => ref.orderByChild('over'))
-    .valueChanges();
+  matches: Observable<any[]>
+  constructor(matchInfo: MatchInfoService) {
+    this.matches = matchInfo.getMatches();
   }
 
   ngOnInit() {

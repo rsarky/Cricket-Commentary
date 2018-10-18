@@ -1,8 +1,46 @@
-<h1> Live Commentary </h1>
-<mat-list>
-  <mat-list-item *ngFor="let comment of (comments | async)?.slice().reverse()">
-    <span style="font-weight: bold">{{comment.over}}.{{comment.ball}}</span>
-    <p>{{comment.comment}}</p>
-    <mat-divider></mat-divider>
-  </mat-list-item>
-</mat-list>
+<div class="container">
+  <mat-toolbar>
+    <img src="../../assets/img/honda-logo.png">
+    <h1>Honda Premier League</h1>
+  </mat-toolbar>
+
+  <div class="matches">
+    <div *ngFor="let match of matches | async">
+      <mat-card>
+        <table>
+          <tr>
+            <th>
+              <b>{{match.batting}}</b>
+            </th>
+            <th>
+              <b>{{match.score.runs}}/{{match.score.wickets}} ({{match.score.overs}}.{{match.score.balls}} overs)</b>
+            </th>
+          </tr>
+          <tr class="bowler">
+              <div *ngIf="match.batting == match.team1;then content else other_content">here is ignored</div>    
+              <ng-template #content>
+                <th>{{match.team2}}</th>
+              </ng-template>
+              <ng-template #other_content>
+                <th>{{match.team1}}</th>
+              </ng-template>              
+          </tr>
+          <tr class="toss">
+            <th colspan="2">{{match.toss}} won the toss and chose to {{match.decision}}</th>
+          </tr>
+        </table>
+      </mat-card>
+    </div>
+  </div>
+  <!-- <h1> Live Commentary </h1>
+    <mat-list>
+      <mat-list-item *ngFor="let comment of (comments | async)?.slice().reverse()">
+        <span style="font-weight: bold">{{comment.over}}.{{comment.ball}}</span>
+        <p>{{comment.comment}}</p>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list> -->
+  <footer>
+    <p>Made with 🖤 by Rohit Sarkar</p>
+  </footer>
+</div>
