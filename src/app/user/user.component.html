@@ -29,9 +29,11 @@
               <ng-template #other_content>
                 <th>{{match.team1}}</th>
               </ng-template>
-              <th>
-                <b>{{match.innings1.runs}}/{{match.innings1.wickets}} ({{match.innings1.overs}}.{{match.innings1.balls}} Ovs)</b>
-              </th>
+              <div *ngIf="match.inning == 2">
+                <th>
+                  <b>{{match.innings1.runs}}/{{match.innings1.wickets}} ({{match.innings1.overs}}.{{match.innings1.balls}} Ovs)</b>
+                </th>
+              </div>
             </tr>
             <div *ngIf="match.status == 'running'">
               <tr class="toss">
