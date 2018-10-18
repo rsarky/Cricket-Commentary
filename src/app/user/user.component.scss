@@ -1,4 +1,4 @@
-$navcolor : #2ccbf7;
+$navcolor : #ffc1f7;// #2ccbf7;
 // $navtextcolor: 
 p {
     margin-left: 20px;
@@ -16,6 +16,7 @@ p {
     h1 {
         margin-top: 0px;
         margin-left: 20px;
+        color: #7c1019;
     }
     min-height: 100vh;
     background-color: white !important;
@@ -57,7 +58,7 @@ footer {
     // width: 100%;
     margin-top: auto;
     height: 50px;
-    background-color: #142e5b;
+    background-color: #7a345d;
     display: flex;
     justify-content: center;
 }
