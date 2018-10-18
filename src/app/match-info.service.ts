@@ -46,15 +46,42 @@ export class MatchInfoService {
     this.db.object('/matches/' + key + '/score').set(score)
   }
 
-  changeInning(key: String, battingTeam: string) {
-    this.db.object('/matches/' + key).update({inning: 2,batting: battingTeam});
+  changeInning(key: String, battingTeam: string,score) {
+    this.db.object('/matches/' + key).update({
+      inning: 2,
+      batting: battingTeam,
+      innings1: {
+        runs: score.runs,
+        balls: score.balls,
+        overs: score.overs,
+        wickets: score.wickets
+      },
+      score: {
+        runs: 0,
+        balls: 0,
+        wickets: 0,
+        overs: 0
+      }
+    });
   }
 
-  completeMatch(key: String) {
-    this.db.object('/matches/' + key).update({status: 'completed'});
+  completeMatch(key: String, score) {
+    this.db.object('/matches/' + key).update({
+      status: 'completed',
+      innings2: {
+        runs: score.runs,
+        wickets: score.wickets,
+        overs: score.overs,
+        balls: score.balls
+      }
+    });
   }
 
   getMatches(): Observable<any> {
     return this.db.list('/matches').valueChanges();
+  }
+
+  getComments(match:Match): Observable<any[]> {
+    return this.db.list('/matches/' + match.dbKey + '/comments/innings' + match.inning).valueChanges();
   }
 }

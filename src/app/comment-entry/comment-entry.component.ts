@@ -61,13 +61,13 @@ export class CommentEntryComponent implements OnInit {
   nextInning() {
     this.match.inning = 2;
     let battingTeam = this.match.batting == this.match.team1 ? this.match.team2 : this.match.team1;
+    this.database.changeInning(this.matchKey,battingTeam,this.match.score)
     this.reset();
-    this.database.changeInning(this.matchKey,battingTeam)
   }
 
   endMatch() {
     this.match.status = 'completed';
-    this.database.completeMatch(this.matchKey);
+    this.database.completeMatch(this.matchKey,this.match.score);
     this.router.navigateByUrl('').then(_ => this.router.navigateByUrl('/commentary'));
   }
 

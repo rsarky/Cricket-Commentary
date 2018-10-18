@@ -23,6 +23,7 @@ import { CommentLandingComponent } from './comment-landing/comment-landing.compo
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CommentsOutputComponent } from './comments-output/comments-output.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     UserComponent,
     CommentatorLoginComponent,
     NewmatchComponent,
-    CommentLandingComponent
+    CommentLandingComponent,
+    CommentsOutputComponent
   ],
   imports: [
     BrowserModule,

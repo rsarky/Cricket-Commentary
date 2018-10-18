@@ -1,5 +1,4 @@
 import { Comment } from './Comment';
-
 export class Match {
     dbKey: string; //The unique firebase list id.
     team1: string;
@@ -10,22 +9,22 @@ export class Match {
     status: string;
     inning: number;
     batting: string;
-    finalscore: {
-        inning1: {
-            runs: number,
-            wickets: number,
-            overs: number,
-            balls: number
-        },
-        inning2: {
-            runs: number,
-            wickets: number,
-            overs: number,
-            balls: number
-        },
-        winner: string
-    }
+    winner: string;
+    abandoned: boolean;
+    tied: boolean;
     score: {
+        runs: number,
+        wickets: number,
+        overs: number,
+        balls: number
+    }
+    innings1: {
+        runs: number,
+        wickets: number,
+        overs: number,
+        balls: number
+    }
+    innings2: {
         runs: number,
         wickets: number,
         overs: number,
@@ -43,6 +42,8 @@ export class Match {
             overs: 0,
             balls: 0
         }
+        this.abandoned = false;
+        this.tied = false;
         this.status = 'running';
         this.inning = 1;
     }

@@ -1,0 +1,8 @@
+<h1>{{selectedMatch.team1}} vs {{selectedMatch.team2}}</h1>
+<mat-list>
+  <mat-list-item *ngFor="let comment of (comments | async)?.slice().reverse()">
+    <span style="font-weight: bold">{{comment.over}}.{{comment.ball}}</span>
+    <p>{{comment.comment}}</p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>

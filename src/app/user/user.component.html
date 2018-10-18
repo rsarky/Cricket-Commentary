@@ -5,41 +5,52 @@
   </mat-toolbar>
 
   <div class="matches">
-    <div *ngFor="let match of matches | async">
-      <mat-card>
-        <table>
-          <tr>
-            <th>
-              <b>{{match.batting}}</b>
-            </th>
-            <th>
-              <b>{{match.score.runs}}/{{match.score.wickets}} ({{match.score.overs}}.{{match.score.balls}} overs)</b>
-            </th>
-          </tr>
-          <tr class="bowler">
-              <div *ngIf="match.batting == match.team1;then content else other_content">here is ignored</div>    
+    <div *ngIf="nomatches;then no else matchesx">here is ignored</div>
+    <ng-template #no>
+      <p>No matches have been played yet. Stay tuned.</p>
+    </ng-template>
+    <ng-template #matchesx>
+      <div *ngFor="let match of matches | async">
+        <mat-card (click)="showMatch(match)">
+          <table>
+            <tr>
+              <th>
+                <b>{{match.batting}}</b>
+              </th>
+              <th>
+                <b>{{match.score.runs}}/{{match.score.wickets}} ({{match.score.overs}}.{{match.score.balls}} Ovs)</b>
+              </th>
+            </tr>
+            <tr class="bowler">
+              <div *ngIf="match.batting == match.team1;then content else other_content">here is ignored</div>
               <ng-template #content>
                 <th>{{match.team2}}</th>
               </ng-template>
               <ng-template #other_content>
                 <th>{{match.team1}}</th>
-              </ng-template>              
-          </tr>
-          <tr class="toss">
-            <th colspan="2">{{match.toss}} won the toss and chose to {{match.decision}}</th>
-          </tr>
-        </table>
-      </mat-card>
-    </div>
+              </ng-template>
+              <th>
+                <b>{{match.innings1.runs}}/{{match.innings1.wickets}} ({{match.innings1.overs}}.{{match.innings1.balls}} Ovs)</b>
+              </th>
+            </tr>
+            <div *ngIf="match.status == 'running'">
+              <tr class="toss">
+                <th colspan="2">{{match.toss}} won the toss and chose to {{match.decision}}</th>
+              </tr>
+            </div>
+            <div *ngIf="match.status == 'completed'">
+              <tr class="result">
+                <th colspan="2">{{match.winner}} won the match</th>
+              </tr>
+            </div>
+          </table>
+        </mat-card>
+      </div>
+    </ng-template>
   </div>
-  <!-- <h1> Live Commentary </h1>
-    <mat-list>
-      <mat-list-item *ngFor="let comment of (comments | async)?.slice().reverse()">
-        <span style="font-weight: bold">{{comment.over}}.{{comment.ball}}</span>
-        <p>{{comment.comment}}</p>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-    </mat-list> -->
+  <div *ngIf="commentaryMatch">
+    <app-comments-output [match]="commentaryMatch"></app-comments-output>
+  </div>
   <footer>
     <p>Made with 🖤 by Rohit Sarkar</p>
   </footer>

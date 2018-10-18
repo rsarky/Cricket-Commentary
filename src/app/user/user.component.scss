@@ -23,14 +23,26 @@ p {
     .matches {
         display: flex;
         overflow: auto;
+        min-height: 120px;
+        border-bottom: solid 1px black;
         mat-card {
             min-width:200px;
-            height: 100px;
+            height: 87%;
+            padding-top: 15px;
+            padding-bottom: 0px;
+        }
+        mat-card:hover {
+            background-color: lightblue;
         }
         .toss {
             font-size: x-small;
             font-weight: lighter;
             color:lightcoral;
+        }
+        .result {
+            font-size: x-small;
+            font-weight: lighter;
+            color:lightgreen;
         }
         .bowler {
             margin-top:10px;
