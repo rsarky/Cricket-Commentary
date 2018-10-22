@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Match } from '../Match';
 import { MatchInfoService } from '../match-info.service'
 import { Router } from '@angular/router';
-//TODO: refactor db stuff into match-info service.
+
 @Component({
   selector: 'app-comment-entry',
   templateUrl: './comment-entry.component.html',
@@ -20,6 +20,7 @@ export class CommentEntryComponent implements OnInit {
   bowlingTeam: string;
   comments;
   ref;
+  runsThisBall: number;
   extra: boolean;
   constructor(db: MatchInfoService, public router: Router) {
     this.comment = new Comment();
@@ -28,11 +29,9 @@ export class CommentEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.runsThisBall = 0;
     this.comment.over = this.match.score.overs;
     this.comment.ball = this.match.score.balls === 6 ? 1 : this.match.score.balls + 1;
-    console.log(this.comment)
-
   }
 
   onSubmit() {
@@ -55,6 +54,8 @@ export class CommentEntryComponent implements OnInit {
       })
       this.match.score.overs = this.comment.over;
       this.match.score.balls = this.comment.ball;
+      this.match.score.runs += this.runsThisBall;
+      this.runsThisBall = 0;
       this.database.updateScore(this.matchKey, this.match.score)
   }
 
@@ -75,6 +76,7 @@ export class CommentEntryComponent implements OnInit {
     this.comment.comment = "";
     this.comment.over = 0;
     this.comment.ball = 1;
+    this.runsThisBall = 0;
     this.match.score = {
       overs: 0,
       balls: 0,
