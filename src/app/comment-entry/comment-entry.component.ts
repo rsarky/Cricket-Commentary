@@ -31,17 +31,19 @@ export class CommentEntryComponent implements OnInit {
   ngOnInit() {
     this.runsThisBall = 0;
     this.comment.over = this.match.score.overs;
-    this.comment.ball = this.match.score.balls === 6 ? 1 : this.match.score.balls + 1;
+    this.comment.ball = this.match.score.balls === 0 ? 1 : this.match.score.balls + 1;
   }
 
-  onSubmit() {
-    this.database.pushComment(this.matchKey, this.comment, this.match.inning)
+  async onSubmit() {
+    await this.database.pushComment(this.matchKey, this.comment, this.match.inning)
       .then(() => {
         this.comment.comment = "";
         if(!this.extra) {
+          this.match.score.overs = this.comment.ball === 6 ? this.comment.over + 1 : this.comment.over;
+          this.match.score.balls = this.comment.ball === 6 ? 0 : this.comment.ball;
           if(this.comment.ball === 6) {
             this.comment.over++;
-            this.comment.ball = 0;
+            this.comment.ball = 1;
           } else {
             this.comment.ball++;
           }
@@ -52,8 +54,6 @@ export class CommentEntryComponent implements OnInit {
       .catch((err) => {
         console.log(err);
       })
-      this.match.score.overs = this.comment.over;
-      this.match.score.balls = this.comment.ball;
       this.match.score.runs += this.runsThisBall;
       this.runsThisBall = 0;
       this.database.updateScore(this.matchKey, this.match.score)
