@@ -24,6 +24,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CommentsOutputComponent } from './comments-output/comments-output.component';
+import { TeamsComponent } from './teams/teams.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CommentsOutputComponent } from './comments-output/comments-output.compo
     CommentatorLoginComponent,
     NewmatchComponent,
     CommentLandingComponent,
-    CommentsOutputComponent
+    CommentsOutputComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,
