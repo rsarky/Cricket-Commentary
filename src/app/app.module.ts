@@ -25,6 +25,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CommentsOutputComponent } from './comments-output/comments-output.component';
 import { TeamsComponent } from './teams/teams.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { TeamDialogComponent } from './team-dialog/team-dialog.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -36,7 +39,8 @@ import { TeamsComponent } from './teams/teams.component';
     NewmatchComponent,
     CommentLandingComponent,
     CommentsOutputComponent,
-    TeamsComponent
+    TeamsComponent,
+    TeamDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,12 @@ import { TeamsComponent } from './teams/teams.component';
     MatCheckboxModule,
     MatToolbarModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatExpansionModule
+  ],
+  entryComponents: [
+    TeamDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

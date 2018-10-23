@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {TeamDialogComponent} from '../team-dialog/team-dialog.component'
 
 @Component({
   selector: 'app-teams',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  showTeams(): void {
+    const dialogRef = this.dialog.open(TeamDialogComponent, {
+      width: '70%'
+    });
   }
 
 }
