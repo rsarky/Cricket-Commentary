@@ -65,7 +65,7 @@ export class MatchInfoService {
     });
   }
 
-  completeMatch(key: String, score) {
+  completeMatch(key: String, score, matchWinner) {
     this.db.object('/matches/' + key).update({
       status: 'completed',
       innings2: {
@@ -73,7 +73,8 @@ export class MatchInfoService {
         wickets: score.wickets,
         overs: score.overs,
         balls: score.balls
-      }
+      },
+      winner: matchWinner
     });
   }
 

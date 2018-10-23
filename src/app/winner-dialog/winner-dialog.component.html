@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Choose the Winner</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-select placeholder="Winning Team" [(value)]="matchWinner" required>
+      <mat-option value="{{data.team1}}">
+        {{data.team1}}
+      </mat-option>
+      <mat-option value="{{data.team2}}">
+        {{data.team2}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="matchWinner" cdkFocusInitial>Ok</button>
+</div>

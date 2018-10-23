@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
 import { Match } from '../Match';
 import { MatchInfoService } from '../match-info.service'
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { TeamDialogComponent } from '../team-dialog/team-dialog.component';
+import { WinnerDialogComponent } from '../winner-dialog/winner-dialog.component';
 
 @Component({
   selector: 'app-comment-entry',
@@ -22,7 +25,7 @@ export class CommentEntryComponent implements OnInit {
   ref;
   runsThisBall: number;
   extra: boolean;
-  constructor(db: MatchInfoService, public router: Router) {
+  constructor(db: MatchInfoService, public router: Router, public dialog: MatDialog) {
     this.comment = new Comment();
     this.database = db;
     this.extra = false;
@@ -38,10 +41,10 @@ export class CommentEntryComponent implements OnInit {
     await this.database.pushComment(this.matchKey, this.comment, this.match.inning)
       .then(() => {
         this.comment.comment = "";
-        if(!this.extra) {
+        if (!this.extra) {
           this.match.score.overs = this.comment.ball === 6 ? this.comment.over + 1 : this.comment.over;
           this.match.score.balls = this.comment.ball === 6 ? 0 : this.comment.ball;
-          if(this.comment.ball === 6) {
+          if (this.comment.ball === 6) {
             this.comment.over++;
             this.comment.ball = 1;
           } else {
@@ -49,27 +52,37 @@ export class CommentEntryComponent implements OnInit {
           }
         } else {
           this.extra = false;
-        }   
+        }
       })
       .catch((err) => {
         console.log(err);
       })
-      this.match.score.runs += this.runsThisBall;
-      this.runsThisBall = 0;
-      this.database.updateScore(this.matchKey, this.match.score)
+    this.match.score.runs += this.runsThisBall;
+    this.runsThisBall = 0;
+    this.database.updateScore(this.matchKey, this.match.score)
   }
 
   nextInning() {
     this.match.inning = 2;
     let battingTeam = this.match.batting == this.match.team1 ? this.match.team2 : this.match.team1;
-    this.database.changeInning(this.matchKey,battingTeam,this.match.score)
+    this.database.changeInning(this.matchKey, battingTeam, this.match.score)
     this.reset();
   }
 
   endMatch() {
-    this.match.status = 'completed';
-    this.database.completeMatch(this.matchKey,this.match.score);
-    this.router.navigateByUrl('').then(_ => this.router.navigateByUrl('/commentary'));
+    const dialogRef = this.dialog.open(WinnerDialogComponent, {
+      width: '50%',
+      data: {
+        team1: this.match.team1,
+        team2: this.match.team2
+      }
+    });
+    dialogRef.afterClosed().subscribe(s => {
+      this.match.winner = s;
+      this.match.status = 'completed';
+      this.database.completeMatch(this.matchKey, this.match.score, this.match.winner);
+      this.router.navigateByUrl('').then(_ => this.router.navigateByUrl('/commentary'));
+    })
   }
 
   reset() {

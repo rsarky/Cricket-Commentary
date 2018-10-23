@@ -46,5 +46,6 @@ export class Match {
         this.tied = false;
         this.status = 'running';
         this.inning = 1;
+        this.winner = 'invalid';
     }
 }

@@ -28,6 +28,7 @@ import { TeamsComponent } from './teams/teams.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { TeamDialogComponent } from './team-dialog/team-dialog.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CommentLandingComponent,
     CommentsOutputComponent,
     TeamsComponent,
-    TeamDialogComponent
+    TeamDialogComponent,
+    WinnerDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatExpansionModule
   ],
   entryComponents: [
-    TeamDialogComponent
+    TeamDialogComponent,
+    WinnerDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

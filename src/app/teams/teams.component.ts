@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {TeamDialogComponent} from '../team-dialog/team-dialog.component'
+import {MatDialog, MatDialogRef} from '@angular/material';
+import {TeamDialogComponent} from '../team-dialog/team-dialog.component';
 
 @Component({
   selector: 'app-teams',
