@@ -85,4 +85,9 @@ export class MatchInfoService {
   getComments(match:Match): Observable<any[]> {
     return this.db.list('/matches/' + match.dbKey + '/comments/innings' + match.inning).valueChanges();
   }
+
+
+  getMatch(key: string) {
+    return this.db.object('/matches/' + key).valueChanges();
+  }
 }

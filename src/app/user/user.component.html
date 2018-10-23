@@ -51,7 +51,11 @@
       </div>
     </ng-template>
   </div>
-  <div *ngIf="commentaryMatch">
+  <div class="commentary" *ngIf="commentaryMatch">
+    <h1>{{commentaryMatch.team1}} vs {{commentaryMatch.team2}}</h1>
+    <div *ngIf="showTarget">
+      <h3>{{commentaryMatch.batting}} needs {{target.runsReq}} runs in {{target.oversRem}}.{{target.ballsRem}} overs</h3>
+    </div>
     <app-comments-output [match]="commentaryMatch"></app-comments-output>
   </div>
   <footer>
