@@ -8,6 +8,14 @@ p {
     display:flex;
     flex-direction: column;
     mat-toolbar {
+        @media screen and (max-width: 488px) {
+            #logo {
+                display: none;
+            }
+            h1 {
+                font-size: smaller;
+            }
+        }
         display: flex;
         // width: 100%;
         // justify-content: center;
