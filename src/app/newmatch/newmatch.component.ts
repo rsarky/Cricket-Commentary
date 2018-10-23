@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Match } from '../Match'
-import { MatchInfoService } from '../match-info.service'
+import { Match } from '../Match';
+import { MatchInfoService } from '../match-info.service';
+import { TEAMS } from '../Teams';
 
 @Component({
   selector: 'app-newmatch',
@@ -13,7 +14,7 @@ export class NewmatchComponent implements OnInit {
   success: boolean;
   showMatchForm: boolean;
   showError: boolean;
-  
+  teams = TEAMS;
   constructor(db: MatchInfoService) {
     this.showMatchForm = true;
     this.db = db;

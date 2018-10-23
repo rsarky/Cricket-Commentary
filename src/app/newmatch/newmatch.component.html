@@ -2,10 +2,20 @@
   <h1>Start a new match!</h1>
   <form (ngSubmit)="onSubmit()" #matchForm="ngForm">
     <mat-form-field>
-      <input matInput placeholder="Team 1 Name" type="text" name="team1" [(ngModel)]="match.team1" required #team1="ngModel">
+      <input matInput placeholder="Team 1 Name" type="text" name="team1" [(ngModel)]="match.team1" required #team1="ngModel" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let team of teams" [value]="team.name">
+          {{ team.name }}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Team 2 Name" type="text" name="team2" [(ngModel)]="match.team2" required #team2="ngModel">
+      <input matInput placeholder="Team 2 Name" type="text" name="team2" [(ngModel)]="match.team2" required #team2="ngModel" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let team of teams" [value]="team.name">
+          {{ team.name }}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
     <mat-form-field>
       <mat-select placeholder="Toss won by" name="toss" [(ngModel)]="match.toss" [disabled]="!team1.valid || !team2.valid" required>

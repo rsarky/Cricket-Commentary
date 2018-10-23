@@ -29,6 +29,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { TeamDialogComponent } from './team-dialog/team-dialog.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
     MatCardModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatAutocompleteModule
   ],
   entryComponents: [
     TeamDialogComponent,
