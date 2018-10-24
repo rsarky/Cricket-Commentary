@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,11 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth, private router: Router) {
     this.user = afAuth.user;
     this.user.subscribe((user) => {
-      if (user) {
+      if (user !== null) {
         this.userDetails = user;
-        console.log(user);
+        console.log(this.userDetails);
       } else {
+        console.log(this.userDetails)
         this.userDetails = null;
       }
     })
@@ -34,9 +36,7 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    if(this.userDetails != null)
-      return true;
-    return false;
+    return this.user.pipe(first()).toPromise()
   }
 
   userObservable() {

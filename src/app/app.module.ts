@@ -35,6 +35,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { MatchInfoService } from './services/match-info.service'
 import { AuthService } from './services/auth.service'
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { AuthService } from './services/auth.service'
   ],
   providers: [
     MatchInfoService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
