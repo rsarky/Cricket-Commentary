@@ -19,7 +19,6 @@ import { MatListModule } from '@angular/material/list';
 import { CommentatorLoginComponent } from './commentator-login/commentator-login.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NewmatchComponent } from './newmatch/newmatch.component';
-import { CommentLandingComponent } from './comment-landing/comment-landing.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -36,6 +35,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatchInfoService } from './services/match-info.service'
 import { AuthService } from './services/auth.service'
 import { AuthGuard } from './services/auth.guard';
+import { RunningMatchesComponent } from './running-matches/running-matches.component';
 
 @NgModule({
   declarations: [
@@ -44,11 +44,11 @@ import { AuthGuard } from './services/auth.guard';
     UserComponent,
     CommentatorLoginComponent,
     NewmatchComponent,
-    CommentLandingComponent,
     CommentsOutputComponent,
     TeamsComponent,
     TeamDialogComponent,
-    WinnerDialogComponent
+    WinnerDialogComponent,
+    RunningMatchesComponent
   ],
   imports: [
     BrowserModule,

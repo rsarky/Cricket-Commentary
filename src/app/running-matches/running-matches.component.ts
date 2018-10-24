@@ -5,11 +5,12 @@ import { filter, map } from 'rxjs/operators'
 import { Match } from '../models/Match'
 
 @Component({
-  selector: 'app-comment-landing',
-  templateUrl: './comment-landing.component.html',
-  styleUrls: ['./comment-landing.component.scss']
+  selector: 'app-running-matches',
+  templateUrl: './running-matches.component.html',
+  styleUrls: ['./running-matches.component.scss']
 })
-export class CommentLandingComponent implements OnInit {
+export class RunningMatchesComponent implements OnInit {
+
   matches: Observable<any>;
   showCommentEntry: boolean;
   ongoingMatches: Observable<any>;
@@ -34,4 +35,5 @@ export class CommentLandingComponent implements OnInit {
   ngOnInit() {
     this.showCommentEntry = false;
   }
+
 }
