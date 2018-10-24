@@ -30,8 +30,11 @@ import { TeamDialogComponent } from './team-dialog/team-dialog.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 import { AppRoutingModule } from './app-routing.module';
 
+import { MatchInfoService } from './services/match-info.service'
+import { AuthService } from './services/auth.service'
 
 @NgModule({
   declarations: [
@@ -71,7 +74,10 @@ import { AppRoutingModule } from './app-routing.module';
     TeamDialogComponent,
     WinnerDialogComponent
   ],
-  providers: [],
+  providers: [
+    MatchInfoService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

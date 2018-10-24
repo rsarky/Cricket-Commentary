@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-commentator-login',
@@ -15,13 +14,15 @@ export class CommentatorLoginComponent implements OnInit {
   chooseOngoing: boolean = false;
   showNewmatch: boolean = false;
   showChoice: boolean = true;
-  constructor(public afAuth: AngularFireAuth) {
+  user;
+  constructor(private auth: AuthService) {
     this.showError = false;
+    this.user = this.auth.userObservable();
    }
 
   login() {
     this.showSpinner = true;
-    this.afAuth.auth.signInWithEmailAndPassword(this.email, this.password)
+    this.auth.emailLogin(this.email, this.password)
       .then(_ => this.showError = false)
       .catch((error) => {
       // Handle Errors here.
@@ -37,7 +38,7 @@ export class CommentatorLoginComponent implements OnInit {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.auth.logout();
   }
 
   ngOnInit() {

@@ -1,12 +1,12 @@
 <mat-toolbar class="navbar" color="primary">
   <h1>Commentate</h1>
   <span class="filled-space"></span>
-  <span *ngIf="afAuth.user | async as user">
+  <span *ngIf="user | async as user">
     <button mat-flat-button color="warn" (click)="logout()">Logout</button>
   </span>
 </mat-toolbar>
 
-<div *ngIf="afAuth.user | async as user; else showLogin">
+<div *ngIf="user | async as user; else showLogin">
   <div *ngIf="showChoice">
     <h3 class="choice">Create a
       <button mat-raised-button (click)="showNew()">new match</button> or choose from
