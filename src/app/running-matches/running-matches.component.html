@@ -1,5 +1,5 @@
-<div *ngIf="!showCommentEntry">
-  <h1>Ongoing Matches</h1>
+<div>
+  <h1>Select Among Ongoing Matches</h1>
   <mat-nav-list>
     <mat-list-item *ngFor="let match of ongoingMatches | async" (click)="onClick(match)">
       <a>{{ match.team1 }} vs {{ match.team2 }}</a>
@@ -11,6 +11,6 @@
     <h3>There are no ongoing matches. Refresh the page to go back.</h3>
   </div>
 </div>
-<div *ngIf="showCommentEntry">
+<div>
   <!-- <app-comment-entry [match]="selectedMatch" [matchKey]="selectedMatch.dbKey"></app-comment-entry> -->
 </div>

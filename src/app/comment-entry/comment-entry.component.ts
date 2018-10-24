@@ -31,6 +31,9 @@ export class CommentEntryComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.md.getMatch() == null) {
+      this.router.navigate(['/commentary/dashboard']);
+    }
     this.match = this.md.getMatch();
     this.runsThisBall = 0;
     this.comment.over = this.match.score.overs;
