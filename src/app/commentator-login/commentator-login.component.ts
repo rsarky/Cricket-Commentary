@@ -37,10 +37,6 @@ export class CommentatorLoginComponent implements OnInit {
     });
   }
 
-  logout() {
-    this.auth.logout();
-  }
-
   ngOnInit() {
     
   }
