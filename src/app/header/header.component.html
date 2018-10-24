@@ -1,0 +1,7 @@
+<mat-toolbar class="navbar" color="primary">
+  <h1>Commentate</h1>
+  <span class="filled-space"></span>
+  <span *ngIf="user | async as user">
+    <button mat-flat-button color="warn" (click)="auth.logout()">Logout</button>
+  </span>
+</mat-toolbar>

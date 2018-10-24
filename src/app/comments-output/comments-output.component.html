@@ -1,3 +1,4 @@
+<app-header></app-header>
 <mat-list>
   <mat-list-item *ngFor="let comment of (comments | async)?.slice().reverse()">
     <span style="font-weight: bold">{{comment.over}}.{{comment.ball}}</span>

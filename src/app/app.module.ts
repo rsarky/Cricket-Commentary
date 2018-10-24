@@ -38,6 +38,7 @@ import { AuthGuard } from './services/auth.guard';
 import { RunningMatchesComponent } from './running-matches/running-matches.component';
 import { CommentatorDashboardComponent } from './commentator-dashboard/commentator-dashboard.component';
 import { MatchDataService } from './services/match-data.service';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { MatchDataService } from './services/match-data.service';
     TeamDialogComponent,
     WinnerDialogComponent,
     RunningMatchesComponent,
-    CommentatorDashboardComponent
+    CommentatorDashboardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
