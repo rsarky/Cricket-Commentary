@@ -84,7 +84,7 @@ export class CommentEntryComponent implements OnInit {
       this.match.winner = s;
       this.match.status = 'completed';
       this.database.completeMatch(this.match.dbKey, this.match.score, this.match.winner);
-      this.router.navigateByUrl('').then(_ => this.router.navigateByUrl('/commentary'));
+      this.router.navigateByUrl('').then(_ => this.router.navigateByUrl('/commentary/dashboard'));
     })
   }
 

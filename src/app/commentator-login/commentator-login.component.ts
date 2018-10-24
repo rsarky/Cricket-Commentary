@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-commentator-login',
@@ -42,7 +43,11 @@ export class CommentatorLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.user.pipe(first()).subscribe(user => {
+      if(user) {
+        this.router.navigate(['commentary/dashboard']);
+      }
+    })
   }
 
   showOngoing() {
