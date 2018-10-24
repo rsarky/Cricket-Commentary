@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Match } from '../Match';
-import { MatchInfoService } from '../match-info.service';
+import { Match } from '../models/Match';
+import { MatchInfoService } from '../services/match-info.service';
 import { TEAMS } from '../Teams';
 
 @Component({

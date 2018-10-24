@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { Comment } from '../Comment';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { Comment } from '../models/Comment';
 import { Observable } from 'rxjs';
-import { Match } from '../Match';
-import { MatchInfoService } from '../match-info.service'
+import { Match } from '../models/Match';
+import { MatchInfoService } from '../services/match-info.service'
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { TeamDialogComponent } from '../team-dialog/team-dialog.component';

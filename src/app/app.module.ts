@@ -20,16 +20,17 @@ import { CommentatorLoginComponent } from './commentator-login/commentator-login
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { NewmatchComponent } from './newmatch/newmatch.component';
 import { CommentLandingComponent } from './comment-landing/comment-landing.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommentsOutputComponent } from './comments-output/comments-output.component';
 import { TeamsComponent } from './teams/teams.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TeamDialogComponent } from './team-dialog/team-dialog.component';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { WinnerDialogComponent } from './winner-dialog/winner-dialog.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -55,8 +56,6 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatSelectModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    RouterModule.forRoot([{ path: 'commentary', component: CommentatorLoginComponent },
-    { path: '', component: UserComponent }]),
     MatListModule,
     AngularFireAuthModule,
     MatCheckboxModule,
@@ -65,7 +64,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatExpansionModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    AppRoutingModule
   ],
   entryComponents: [
     TeamDialogComponent,

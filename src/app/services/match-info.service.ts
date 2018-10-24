@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { Comment } from './Comment'
-import { Match } from './Match';
+import { Comment } from '../models/Comment'
+import { Match } from '../models/Match';
 
 @Injectable({
   providedIn: 'root'

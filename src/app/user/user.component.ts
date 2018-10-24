@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Comment } from '../Comment';
+import { Comment } from '../models/Comment';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { MatchInfoService } from '../match-info.service';
-import { Match } from '../Match';
+import { MatchInfoService } from '../services/match-info.service';
+import { Match } from '../models/Match';
 
 @Component({
   selector: 'app-user',

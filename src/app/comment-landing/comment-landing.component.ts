@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators'
-import { Match } from '../Match'
+import { Match } from '../models/Match'
 
 @Component({
   selector: 'app-comment-landing',
