@@ -13,9 +13,8 @@ const appRoutes = [
   { path: '', component: UserComponent },
   { path: 'commentary', component: CommentatorLoginComponent },
   { path: 'commentary/dashboard', component: CommentatorDashboardComponent, canActivate: [AuthGuard] },
-  { path: 'commentary/commentate', component: CommentEntryComponent, canActivate: [AuthGuard], data: {
-    match: Match
-  }}
+  { path: 'commentary/commentate', component: CommentEntryComponent, canActivate: [AuthGuard]},
+  { path: '**', component: CommentatorDashboardComponent, canActivate: [AuthGuard] }
 ]
 
 @NgModule({
