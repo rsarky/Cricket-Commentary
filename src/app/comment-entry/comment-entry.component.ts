@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { TeamDialogComponent } from '../team-dialog/team-dialog.component';
 import { WinnerDialogComponent } from '../winner-dialog/winner-dialog.component';
+import { MatchDataService } from '../services/match-data.service';
 
 @Component({
   selector: 'app-comment-entry',
@@ -14,8 +15,7 @@ import { WinnerDialogComponent } from '../winner-dialog/winner-dialog.component'
   styleUrls: ['./comment-entry.component.scss']
 })
 export class CommentEntryComponent implements OnInit {
-  @Input() match: Match;
-  @Input() matchKey;
+  match: Match;
   database: MatchInfoService;
   comment: Comment;
   battingTeam: string;
@@ -24,20 +24,21 @@ export class CommentEntryComponent implements OnInit {
   ref;
   runsThisBall: number;
   extra: boolean;
-  constructor(db: MatchInfoService, public router: Router, public dialog: MatDialog) {
+  constructor(db: MatchInfoService, public router: Router, public dialog: MatDialog, private md: MatchDataService) {
     this.comment = new Comment();
     this.database = db;
     this.extra = false;
   }
 
   ngOnInit() {
+    this.match = this.md.getMatch();
     this.runsThisBall = 0;
     this.comment.over = this.match.score.overs;
     this.comment.ball = this.match.score.balls === 0 ? 1 : this.match.score.balls + 1;
   }
 
   async onSubmit() {
-    await this.database.pushComment(this.matchKey, this.comment, this.match.inning)
+    await this.database.pushComment(this.match.dbKey, this.comment, this.match.inning)
       .then(() => {
         this.comment.comment = "";
         if (!this.extra) {
@@ -58,13 +59,13 @@ export class CommentEntryComponent implements OnInit {
       })
     this.match.score.runs += this.runsThisBall;
     this.runsThisBall = 0;
-    this.database.updateScore(this.matchKey, this.match.score)
+    this.database.updateScore(this.match.dbKey, this.match.score)
   }
 
   nextInning() {
     this.match.inning = 2;
     let battingTeam = this.match.batting == this.match.team1 ? this.match.team2 : this.match.team1;
-    this.database.changeInning(this.matchKey, battingTeam, this.match.score)
+    this.database.changeInning(this.match.dbKey, battingTeam, this.match.score)
     this.reset();
   }
 
@@ -79,7 +80,7 @@ export class CommentEntryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(s => {
       this.match.winner = s;
       this.match.status = 'completed';
-      this.database.completeMatch(this.matchKey, this.match.score, this.match.winner);
+      this.database.completeMatch(this.match.dbKey, this.match.score, this.match.winner);
       this.router.navigateByUrl('').then(_ => this.router.navigateByUrl('/commentary'));
     })
   }

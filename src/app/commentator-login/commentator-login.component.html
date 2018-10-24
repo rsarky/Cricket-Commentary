@@ -6,49 +6,29 @@
   </span>
 </mat-toolbar>
 
-<div *ngIf="user | async as user; else showLogin">
-  <div *ngIf="showChoice">
-    <h3 class="choice">Create a
-      <button mat-raised-button (click)="showNew()">new match</button> or choose from
-      <button mat-raised-button (click)="showOngoing()">
-        ongoing matches
-      </button>
-    </h3>
-  </div>
-  <div *ngIf="chooseOngoing">
-    <app-running-matches></app-running-matches>
-  </div>
-  <div *ngIf="showNewmatch">
-    <app-newmatch></app-newmatch>
-  </div>
-</div>
 
-<ng-template #showLogin>
-
-  <mat-card class="login-card">
-    <mat-card-header>
-      <mat-card-title>
-        <h3>Commentator Login</h3>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form (ngSubmit)="login()" #loginForm="ngForm">
-        <mat-form-field class="example-full-width">
-          <input matInput type="email" placeholder="Email" [(ngModel)]="email" name="email" email required>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
-        </mat-form-field>
-      </form>
-      <div *ngIf="showError">
-        <p style=" color: red">Invalid email-id password combination</p>
-      </div>
-      <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary" [disabled]="!loginForm.form.valid">Login</button>
-    </mat-card-actions>
-  </mat-card>
-
-</ng-template>
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>
+      <h3>Commentator Login</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <mat-form-field class="example-full-width">
+        <input matInput type="email" placeholder="Email" [(ngModel)]="email" name="email" email required>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+      </mat-form-field>
+    </form>
+    <div *ngIf="showError">
+      <p style=" color: red">Invalid email-id password combination</p>
+    </div>
+    <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="login()" color="primary" [disabled]="!loginForm.form.valid">Login</button>
+  </mat-card-actions>
+</mat-card>

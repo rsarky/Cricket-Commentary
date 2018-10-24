@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Match } from '../models/Match';
 import { MatchInfoService } from '../services/match-info.service';
 import { TEAMS } from '../Teams';
+import { Router } from '@angular/router';
+import { MatchDataService } from '../services/match-data.service';
 
 @Component({
   selector: 'app-newmatch',
@@ -15,7 +17,7 @@ export class NewmatchComponent implements OnInit {
   showMatchForm: boolean;
   showError: boolean;
   teams = TEAMS;
-  constructor(db: MatchInfoService) {
+  constructor(db: MatchInfoService, private router: Router, private md: MatchDataService) {
     this.showMatchForm = true;
     this.db = db;
   }
@@ -32,8 +34,9 @@ export class NewmatchComponent implements OnInit {
       // TODO very very hacky. Find an alternate method to get the key for a firebase list item. This uses 2 db acceses.
       this.db.setKey(key);
       console.log(this.match.dbKey);
-      this.showMatchForm = false;
       console.log('successfully created match');
+      this.md.setMatch(this.match);
+      this.router.navigate(['commentary/commentate'])
     })
     .catch(_ => {
       this.success = false;

@@ -36,6 +36,9 @@ import { MatchInfoService } from './services/match-info.service'
 import { AuthService } from './services/auth.service'
 import { AuthGuard } from './services/auth.guard';
 import { RunningMatchesComponent } from './running-matches/running-matches.component';
+import { CommentatorDashboardComponent } from './commentator-dashboard/commentator-dashboard.component';
+import { MatchDataService } from './services/match-data.service';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ import { RunningMatchesComponent } from './running-matches/running-matches.compo
     TeamsComponent,
     TeamDialogComponent,
     WinnerDialogComponent,
-    RunningMatchesComponent
+    RunningMatchesComponent,
+    CommentatorDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +82,8 @@ import { RunningMatchesComponent } from './running-matches/running-matches.compo
   providers: [
     MatchInfoService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    MatchDataService
   ],
   bootstrap: [AppComponent]
 })

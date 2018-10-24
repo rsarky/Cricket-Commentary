@@ -1,4 +1,4 @@
-<div *ngIf="showMatchForm">
+<div>
   <h1>Start a new match!</h1>
   <form (ngSubmit)="onSubmit()" #matchForm="ngForm">
     <mat-form-field>
@@ -39,7 +39,4 @@
 <div *ngIf="showError">
   <p>Oops! Something went wrong. Retry!</p>
   <!-- Test and improve comment entry. -->
-</div>
-<div *ngIf="success && match.dbKey">
-  <app-comment-entry [match]="match" [matchKey]="match.dbKey"></app-comment-entry>
 </div>

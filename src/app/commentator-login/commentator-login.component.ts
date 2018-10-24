@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-commentator-login',
@@ -15,7 +16,7 @@ export class CommentatorLoginComponent implements OnInit {
   showNewmatch: boolean = false;
   showChoice: boolean = true;
   user;
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private router: Router) {
     this.showError = false;
     this.user = this.auth.userObservable();
    }
@@ -23,7 +24,10 @@ export class CommentatorLoginComponent implements OnInit {
   login() {
     this.showSpinner = true;
     this.auth.emailLogin(this.email, this.password)
-      .then(_ => this.showError = false)
+      .then(_ => {
+        this.showError = false;
+        this.router.navigate(['commentary/dashboard'])
+      })
       .catch((error) => {
       // Handle Errors here.
       // TODO: handle incorrect username password.
