@@ -1,4 +1,4 @@
-import { Team } from './Team'
+import { Team } from './models/Team'
 export const TEAMS: Team[] = [
     {
         'name': 'AE + MS',
