@@ -1,27 +1,14 @@
-# LivecommentaryFront
+# Cricket Commentary
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
+This is a webapp where commentators can commentate on cricket matches and users can view scores and commentary of the matches. This can be applied to cricket tournaments to provide an interactive environment like [cricbuzz](http://www.cricbuzz.com).
 
-## Development server
+The webapp has been developed using Angular and Firebase.<br>
+Any updates by a commentator are instantly reflected on the users view.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Deployed example: 
+- For viewers : [link](https://commentary-staging.firebaseapp.com/)
+- For commentators: [link](https://commentary-staging.firebaseapp.com/commentary)
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Sample Login:
+- email : `sampleuser@test.com`
+- password : `pass123`
