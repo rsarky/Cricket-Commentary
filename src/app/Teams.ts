@@ -1,7 +1,7 @@
 import { Team } from './models/Team'
 export const TEAMS: Team[] = [
     {
-        'name': 'AE + MS',
+        'name': 'Nagpur Oranges',
         'players': [
             'VISHAL SAN',
             'PUNEET KUMAR (Captain)',
@@ -22,7 +22,7 @@ export const TEAMS: Team[] = [
         ]
     },
     {
-        'name': 'AF-1',
+        'name': 'Mumbai Wadapav',
         'players': [
             'Deepak Rajput(C)',
             'Gaurav Awasthi(Wk)',
@@ -42,7 +42,7 @@ export const TEAMS: Team[] = [
         ]
     },
     {
-        'name': 'AF-2',
+        'name': 'Kolkata Rasgulla',
         'players': [
             'Sushil Chauhan -  (C & wk)',
             'Sandeep Kesar',
@@ -63,7 +63,7 @@ export const TEAMS: Team[] = [
         ]
     },
     {
-        'name': 'WE-1 & WE-2',
+        'name': 'Chandigarh Lassi',
         'players': [
             'RAJEEV SHINDE',
             'ANKUR SHARMA ',
@@ -84,7 +84,7 @@ export const TEAMS: Team[] = [
         ]
     },
     {
-        'name': 'Utility',
+        'name': 'Chennai Dosa',
         'players': [
             'Praveen Kumar',
             'Rajesh Kumar',
@@ -105,7 +105,7 @@ export const TEAMS: Team[] = [
         ]
     },
     {
-        'name': 'QDD',
+        'name': 'Bangalore Java',
         'players': [
             'ANKIT SHUKLA',
             'KUNAL DHINGRA',
@@ -125,174 +125,6 @@ export const TEAMS: Team[] = [
             'HARIOM'
         ]
     },
-    {
-        'name': 'Purchase',
-        'players': [
-            'Sanchit Sharma',
-            'Rohit Anand',
-            'Vinay Ahuja',
-            'Jitendra Baghel',
-            'Milan Singhal',
-            'Omraj Chauhan',
-            'Abhishek Sharma',
-            'Vikrant Yadav',
-            'Ashfak',
-            'Kuldeep Nagar',
-            'Aayush Bhatli',
-            'Raj Gaurav',
-            'Sairam ',
-            'Sumit Rai',
-            'Shiv Kumar',
-            'Gagan Arora'
-        ]
-    },
-    {
-        'name': 'Customer Service',
-        'players': [
-            'Danish Chawla',
-            'Akhil Aswal',
-            'Pradeep Chauhan',
-            'Prabhat Joshi',
-            'Rakesh Adhikari',
-            'Rahul Singh Bist',
-            'Vipul Saini',
-            'Rohan Arya',
-            'Yogesh Nikam',
-            'Abhishek Kumar Singh',
-            'Mandar Rao',
-            'Sushil Thakur',
-            'Ansh Bhutani',
-            'Vansh Mahajan',
-            'Harshit Bansal',
-            'Kanwar Preet Singh'
-        ]
-    },
-    {
-        'name': 'HAC-ID',
-        'players': [
-            'Rajesh Karn',
-            'Jijo Cherian',
-            'Lakhan Arora',
-            'Krishan Atwal',
-            'Neeraj Dadwal',
-            'Manmaiy Mathur',
-            'Vipin Gupta',
-            'Rohit Pundir',
-            'Ankit Yadav',
-            'Jagannath Basak',
-            'Vipin Parmar',
-            'Gaurav Vig',
-            'Chandan',
-            'Bijay singh',
-            'Upendra Jaiman',
-            'Vishal Chhabra'
-        ]
-    },
-    {
-        'name': 'HGID',
-        'players': [
-            'Aditya',
-            'Yogesh',
-            'Dharmender',
-            'Jitender',
-            'Prashant',
-            'Shubham',
-            'Gaurav Mehta',
-            'Suraj sharma',
-            'Arun Nagar',
-            'Amit Kumar Singh',
-            'Dharamraj',
-            'Gagan Manral',
-            'Lokesh',
-            'Mayank Kakran',
-            'Shashank Bhatt'
-        ]
-    },
-    {
-        'name': 'HMI',
-        'players': [
-            'Rishi Raj',
-            'Puneet Sohal',
-            'Saurabh Tyagi',
-            'Nandan Sharma',
-            'Mohit Chauhan',
-            'Amrendra',
-            'Sidharth',
-            'Vignesh Kannan',
-            'Sunder Singh',
-            'Karmvir',
-            'Vishal Tyagi',
-            'Mahendra Suthar',
-            'Rakesh Matt',
-            'Aakash Mishra',
-            'Bhagat',
-            'Pappan Sharma'
-        ]
-    },
-    {
-        'name': 'IT',
-        'players': [
-            'Hitesh Aggarwal',
-            'Dhiraj Singh',
-            'Hemant Khurana',
-            'Jatin Gulati',
-            'Jatin Agnihotri',
-            'Mohit Bhatnagar',
-            'Nikhil Arora',
-            'Jawed Qadir',
-            'Achal Jain',
-            'Binu Lakshman',
-            'Raghav',
-            'Deepak Pachaury',
-            'Shubham Agarwal',
-            'Shubham Sharma',
-            'Nadeem Babar',
-            'Sasanka Sekhar'
-        ]
-    },
-    {
-        'name': 'PAINT-1',
-        'players': [
-            'Syed Javed (C)',
-            'JiyaRam',
-            'Gautam Priya',
-            'Narendra Singh',
-            'Rohan Bansal',
-            'Prabir Malik',
-            'Bhuvan',
-            'Ateek Ahmad',
-            'Jitender Tyagi',
-            'Rajneesh Yadav',
-            'Kamaljeet',
-            'Asif raja',
-            'Sunil Vardhan',
-            'Hari Parke',
-            'Nikunj patel',
-            'Naresh',
-            'Nakanishi'
-        ]
-    },
-    {
-        'name': 'PO',
-        'players': [
-            'Parveen Kumar(C)',
-            'Krishan Kumar',
-            'Dheeraj Singh',
-            'Amit srivastava',
-            'Hemant joshi',
-            'Kushal Pal',
-            'Nempal',
-            'Narendra',
-            'SUMIT',
-            'Kalicharan',
-            'Chanderkesh',
-            'Dherendra Yadav',
-            'HARDARSHAN',
-            'Moti sagar',
-            'Neeraj',
-            'SANDEEP KUMAR'
-        ]
-    }
 ]
 
 
