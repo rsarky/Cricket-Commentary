@@ -1,9 +1,9 @@
 # Cricket Commentary
 
-This is a webapp where commentators can commentate on cricket matches and users can view scores and commentary of the matches. This can be applied to cricket tournaments to provide an interactive environment like [cricbuzz](http://www.cricbuzz.com).
+:star:This is a webapp where commentators can commentate on cricket matches and users can view scores and commentary of the matches. This can be applied to cricket tournaments to provide an interactive environment like [cricbuzz](http://www.cricbuzz.com).
 
-The webapp has been developed using Angular and Firebase.<br>
-Any updates by a commentator are instantly reflected on the users view.
+:star:The webapp has been developed using Angular and Firebase.<br>
+:star:Any updates by a commentator are instantly reflected on the users view.
 
 Deployed example: 
 - For viewers : [link](https://commentary-staging.firebaseapp.com/)
